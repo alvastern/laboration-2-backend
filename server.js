@@ -45,7 +45,7 @@ app.listen (PORT, () => {
     console.log(`Servern körs på port ${PORT}`);
 });
 
-// API för att hämta användarens work experience
+// Funktion i API för att hämta användarens work experience
 app.get("/api/workexperience", (req, res) => {
     const sql = "SELECT * FROM workexperience";
 
@@ -118,7 +118,7 @@ app.delete("/api/workexperience/:id", (req, res) => {
 
     db.run(sql, [id], function(err) {
         if (err) {
-            return res.status(500),json({error: err.message});
+            return res.status(500).json({error: err.message});
         }
 
         if (this.changes === 0) {
