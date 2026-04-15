@@ -2,7 +2,7 @@
 Detta repository innehåller kod för en REST API som är framtagen med Express och NodeJs. API:et används för att hantera arbetserfarenheter (work experience) i ett CV. Funktioner för CRUD (Create, Read, Update, Delete) är implementerade.
 
 ### Länk
-APIet finns tillgängligt på följande länk: 
+APIet kärs lokalt i port 3000: http://localhost:3000
 
 ### Installation
 För att använda dett API ska detta repository klonas. Du behöver installera npm men npm install och servern startas genom npm run start (eller npm run dev med nodemon). Servern kommer att köras i porten 3000.
@@ -22,6 +22,16 @@ Tabell: workexperience
 | start_date   | DATE                   | NOT NULL   | Startdatum för anställning          |
 | end_date     | DATE                   | NOT NULL   | Slutdatum för anställning           |
 | location     | TEXT                   | NOT NULL   | Plats där arbetet utfördes          |
+
+Ett objekt skickas som JSON-data med följande struktur:
+{
+  "company_name": "Mittuniversitetet",
+  "position": "Senior Labbhandledare",
+  "description": "Handledde ännu fler studenter",
+  "start_date": "2019-01-01",
+  "end_date": "2020-01-01",
+  "location": "Sundsvall"
+}
 
 ### Endpoints
 | Metod | Endpoint                    | Beskrivning                         |
