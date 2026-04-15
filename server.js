@@ -129,7 +129,6 @@ app.delete("/api/workexperience/:id", (req, res) => {
     });
 });
 
-
 // Funktion i API för att hämta en specifik post från användarenS work experience
 app.get("/api/workexperience/:id", (req, res) => {
     const { id } = req.params;
