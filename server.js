@@ -66,6 +66,10 @@ app.post("/api/workexperience", (req, res) => {
         return res.status(400).json({ error: "Alla fält måste fyllas i" });
     }
 
+    if (new Date(end_date) < new Date(start_date)) {
+        return res.status(400).json({ error: "Slutdatum kan inte vara tidigare än startdatum." });
+    }
+
     const sql = `
     INSERT INTO workexperience (company_name, position, description, start_date, end_date, location)
     VALUES (?, ?, ?, ?, ?, ?)`;
@@ -89,6 +93,10 @@ app.put("/api/workexperience/:id", (req, res) => {
 
     if (!company_name || !position || !description || !start_date || !end_date || !location) {
         return res.status(400).json({ error: "Alla fält måste fyllas i" });
+    }
+
+    if (new Date(end_date) < new Date(start_date)) {
+        return res.status(400).json({ error: "Slutdatum kan inte vara tidigare än startdatum." });
     }
 
     const sql = `
